@@ -1,0 +1,25 @@
+pipeine {
+
+agent any
+
+tools {
+   jdk 'Java8'
+   maven 'Maven-3.3.9'
+   
+}
+
+stages {
+stage ('git clone') {
+       steps {
+	   git 'https://github.com/avinash-Gla/Game.git'
+	   }
+	   }
+stage ('compile and build') {
+         steps {
+          sh '''
+          mvn clean install -U -Dmaven.test.skip=true
+		  '''
+}
+}
+}
+}	
